@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>わたしの頑張りすぎタイプ診断｜KoKoRoBeing</title>
+<meta name="description" content="KoKoRoBeing公式LINE友だち限定。12の質問に答えると、あなたの「頑張りすぎタイプ」と、今日からできる1分のセルフケアがわかります。">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#3E6A5A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* 1カラムの縦長ページ。スマホで開かれる前提(LINEから) */
+:root {
+  --bg: #F5F5F2;
+  --paper: #FFFFFF;
+  --ink: #26292B;
+  --soft: #4A545B;
+  --muted: #5B6770;
+  --line: #DADAD4;
+  --accent: #3E6A5A;
+  --accent-soft: #E3EDE8;
+  --line-green: #06C755;
+  --font-body: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-label: "Jost", "Zen Kaku Gothic New", sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.85;
+  padding-inline: 16px;
+  padding-block: 0 48px;
+}
+.wrap { max-width: 640px; margin: 0 auto; }
+header.top { padding-block: 20px; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-family: var(--font-label); letter-spacing: 0.12em; font-weight: 500; color: var(--ink); text-decoration: none; }
+.badge { font-size: 12px; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 2px 10px; }
+.eyebrow { font-family: var(--font-label); font-size: 12px; letter-spacing: 0.3em; color: var(--muted); }
+h1 { font-size: clamp(24px, 6vw, 32px); line-height: 1.5; margin: 6px 0 12px; text-wrap: balance; }
+h2 { font-size: 20px; line-height: 1.5; margin: 0 0 8px; }
+p { margin: 0 0 12px; }
+.lead { color: var(--soft); }
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
+.btn {
+  display: inline-block; width: 100%; text-align: center; padding: 16px 20px; border-radius: 8px;
+  background: var(--accent); color: #FFFFFF; font: inherit; font-weight: 700; border: 0; cursor: pointer; text-decoration: none;
+}
+.btn.ghost { background: var(--paper); color: var(--ink); border: 1px solid #B9BDB8; font-weight: 500; }
+.btn.line { background: var(--line-green); }
+.btn:focus-visible, .opt:focus-visible { outline: 3px solid #8FC1AC; outline-offset: 2px; }
+.stack { display: flex; flex-direction: column; gap: 12px; }
+.progress { height: 6px; background: var(--line); border-radius: 999px; overflow: hidden; margin: 8px 0 20px; }
+.progress span { display: block; height: 100%; background: var(--accent); width: 0; transition: width .3s; }
+.qno { font-family: var(--font-label); color: var(--muted); font-size: 14px; }
+.qtext { font-size: 19px; font-weight: 700; line-height: 1.6; margin: 4px 0 20px; min-height: 3.2em; }
+.opt {
+  width: 100%; text-align: left; padding: 16px 18px; border-radius: 8px; border: 1px solid var(--line);
+  background: var(--paper); color: var(--ink); font: inherit; cursor: pointer;
+}
+.opt:hover { border-color: var(--accent); }
+.back { background: none; border: 0; color: var(--muted); font: inherit; text-decoration: underline; cursor: pointer; padding: 8px 0; }
+.result-card { background: var(--paper); border: 2px solid var(--accent); border-radius: 12px; padding: 24px 20px; }
+.type-name { font-size: clamp(26px, 7vw, 32px); font-weight: 700; color: var(--accent); margin: 4px 0 6px; line-height: 1.4; }
+.type-catch { font-weight: 700; margin-bottom: 14px; }
+.practice { background: var(--accent-soft); border-radius: 8px; padding: 16px 18px; margin-top: 16px; }
+.practice h3 { margin: 0 0 6px; font-size: 17px; }
+.practice ol { margin: 0; padding-left: 1.3em; }
+.bars { display: flex; flex-direction: column; gap: 8px; margin-top: 18px; }
+.bar { display: grid; grid-template-columns: 8.5em 1fr 2.5em; align-items: center; gap: 8px; font-size: 13px; color: var(--soft); }
+.bar i { display: block; height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.bar i b { display: block; height: 100%; background: var(--accent); }
+.bar span:last-child { font-variant-numeric: tabular-nums; text-align: right; }
+.note { font-size: 13px; color: var(--muted); }
+.from { font-size: 12px; color: var(--muted); margin-top: 16px; text-align: right; font-family: var(--font-label); letter-spacing: .1em; }
+@media (prefers-reduced-motion: reduce) { .progress span { transition: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#">KoKoRoBeing</a>
+    <span class="badge">LINE友だち限定</span>
+  </header>
+
+  <!-- 合言葉がないとき -->
+  <section id="locked" hidden>
+    <div class="card stack">
+      <span class="eyebrow">MEMBERS ONLY</span>
+      <h1>この診断は、公式LINE<br>友だち限定のプレゼントです</h1>
+      <p class="lead">KoKoRoBeingの公式LINEに登録すると、あいさつメッセージで診断のURLが届きます。</p>
+      <a class="btn line" href="https://lin.ee/v6xlqGl">LINEで友だち追加する</a>
+    </div>
+  </section>
+
+  <!-- はじめ -->
+  <section id="start" hidden>
+    <span class="eyebrow">SELF CHECK</span>
+    <h1>わたしの<br>頑張りすぎタイプ診断</h1>
+    <p class="lead">12の質問に答えると、あなたが「どんなふうに頑張りすぎてしまうか」のタイプと、今日からできる1分のセルフケアがわかります。</p>
+    <div class="card stack" style="margin-top:20px">
+      <p style="margin:0">・所要時間は2分ほど<br>・最近の自分に一番近いものを、直感で選んでください<br>・答えはどこにも送信されません</p>
+      <button class="btn" id="go" type="button">診断をはじめる</button>
+    </div>
+  </section>
+
+  <!-- 質問 -->
+  <section id="quiz" hidden>
+    <div class="qno" id="qno"></div>
+    <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+    <div class="qtext" id="qtext" aria-live="polite"></div>
+    <div class="stack" id="opts">
+      <button class="opt" type="button" data-score="2">とてもあてはまる</button>
+      <button class="opt" type="button" data-score="1">少しあてはまる</button>
+      <button class="opt" type="button" data-score="0">あてはまらない</button>
+    </div>
+    <button class="back" id="back" type="button">ひとつ前に戻る</button>
+  </section>
+
+  <!-- 結果 -->
+  <section id="result" hidden>
+    <span class="eyebrow">YOUR TYPE</span>
+    <div class="result-card" style="margin-top:8px">
+      <div class="note">あなたの頑張りすぎタイプは</div>
+      <div class="type-name" id="rName"></div>
+      <div class="type-catch" id="rCatch"></div>
+      <p id="rBody"></p>
+      <div class="practice">
+        <h3 id="pTitle"></h3>
+        <ol id="pSteps"></ol>
+      </div>
+      <div class="bars" id="bars"></div>
+      <div class="from">KoKoRoBeing / 咲空麻美</div>
+    </div>
+    <p class="note" style="margin-top:10px">この画面をスクリーンショットで保存しておくと、いつでも見返せます。</p>
+
+    <div class="card stack" style="margin-top:20px">
+      <h2>もう少し、ゆっくり話してみませんか</h2>
+      <p style="margin:0">タイプは、あなたを決めつけるものではありません。今のあなたが楽になるきっかけを、20分の無料体験セッションで一緒に探します。</p>
+      <a class="btn" href="https://calendar.app.google/6E74VohACt26ZsPUA">無料体験セッションを予約する</a>
+      <a class="btn ghost" href="https://lin.ee/v6xlqGl">LINEで感想を送る</a>
+      <button class="btn ghost" id="retry" type="button">もう一度診断する</button>
+    </div>
+    <p class="note" style="margin-top:16px">※この診断は、ご自分の状態をふり返るための目安です。医学的な診断ではありません。つらさが続くときは、医療機関にもご相談ください。</p>
+  </section>
+</div>
+
+<script>
+(function () {
+  // LINEのあいさつメッセージで配るURLの合言葉(?k=...)
+  var KEY = 'kokoro2026';
+
+  var TYPES = {
+    kizukai: {
+      name: '気配りタイプ',
+      catch: '人の気持ちを、自分より先に読んでしまう',
+      body: '周りの小さな変化に気づける、やさしい力を持っています。その分、相手の機嫌や場の空気を自分ごとのように背負いやすく、一日が終わるころにはぐったり。意識が、いつも「外」に向きっぱなしになっているのかもしれません。',
+      pTitle: '1分セルフケア:足の裏に戻る',
+      steps: ['人と話す前か、話したあとに、椅子に座るか立ったままで止まります。', '両足の裏が、床についている感覚に意識を向けます。', 'その感覚を感じたまま、ゆっくり3回呼吸します。意識を「相手」から「自分」に戻す合図です。']
+    },
+    kanpeki: {
+      name: '完璧タイプ',
+      catch: '「ちゃんとしなきゃ」で、力が抜けない',
+      body: '責任感が強く、丁寧に物事を進められる人です。ただ、自分への合格ラインが高いぶん、できたことより足りないところに目が向きがち。頭の中で、ずっと採点が続いているような状態かもしれません。',
+      pTitle: '1分セルフケア:60点でOKの呼吸',
+      steps: ['4つ数えながら、鼻から息を吸います。', '6つ数えながら、口からゆっくり吐きます。', '吐くたびに、心の中で「今日はここまでで十分」とつぶやきます。これを5回くり返します。']
+    },
+    kakaekomi: {
+      name: '抱え込みタイプ',
+      catch: '頼れずに、一人で背負ってしまう',
+      body: '頼りにされることが多く、粘り強い人です。でも「迷惑をかけたくない」「自分でやったほうが早い」と、つらい時ほど一人で抱え込みがち。体のどこかに、ずっと力が入っているのかもしれません。',
+      pTitle: '1分セルフケア:肩をおろす',
+      steps: ['息を吸いながら、両肩を耳に近づけるように持ち上げます。', '息を吐きながら、ストンと肩を落とします。これを3回。', '最後に、誰かに「手伝って」と言えそうなことを、ひとつだけ思い浮かべてみます。']
+    },
+    yasumenai: {
+      name: '休めないタイプ',
+      catch: '止まると、なんだか落ち着かない',
+      body: '行動力があり、いつも前に進もうとする人です。その一方で、何もしない時間に罪悪感や不安を感じやすく、休んでいるはずの時間も頭が動き続けがち。心のアクセルを、ゆるめる練習が合っているかもしれません。',
+      pTitle: '1分セルフケア:何もしない1分',
+      steps: ['スマホのタイマーを1分にセットして、目を閉じます。', '今、聞こえている音を3つ、静かに数えてみます。', '考えごとが浮かんだら「考えてるな」と気づくだけにして、また音に戻ります。']
+    }
+  };
+  var ORDER = ['kizukai', 'kanpeki', 'kakaekomi', 'yasumenai'];
+
+  var QUESTIONS = [
+    { t: 'kizukai',   q: '相手の表情が曇ると、「自分のせいかも」と思ってしまう' },
+    { t: 'kanpeki',   q: '小さなミスを、何日も思い出してしまう' },
+    { t: 'kakaekomi', q: '困っていても、つい「大丈夫です」と言ってしまう' },
+    { t: 'yasumenai', q: '予定のない休日は、なんだか落ち着かない' },
+    { t: 'kizukai',   q: '頼まれると、断る前に引き受けている' },
+    { t: 'kanpeki',   q: '「これくらいでいいか」と思うのが苦手だ' },
+    { t: 'kakaekomi', q: '人に頼るのは、迷惑をかけることだと感じる' },
+    { t: 'yasumenai', q: '横になっても、頭の中で考えごとが続く' },
+    { t: 'kizukai',   q: '場の空気が悪いと、自分がなんとかしなきゃと思う' },
+    { t: 'kanpeki',   q: 'ほめられても「まだまだ」と思ってしまう' },
+    { t: 'kakaekomi', q: '自分でやったほうが早いと、仕事を抱えてしまう' },
+    { t: 'yasumenai', q: 'ぼーっとしていると、時間をむだにしている気がする' }
+  ];
+
+  var $ = function (id) { return document.getElementById(id); };
+  var show = function (id) {
+    ['locked', 'start', 'quiz', 'result'].forEach(function (s) { $(s).hidden = (s !== id); });
+    window.scrollTo(0, 0);
+  };
+  var idx = 0, answers = [];
+
+  function renderQ() {
+    $('qno').textContent = 'Q' + (idx + 1) + ' / ' + QUESTIONS.length;
+    $('bar').style.width = (idx / QUESTIONS.length * 100) + '%';
+    $('qtext').textContent = QUESTIONS[idx].q;
+    $('back').hidden = idx === 0;
+  }
+
+  function finish() {
+    var score = { kizukai: 0, kanpeki: 0, kakaekomi: 0, yasumenai: 0 };
+    answers.forEach(function (a, i) { score[QUESTIONS[i].t] += a; });
+    var top = ORDER.reduce(function (best, k) { return score[k] > score[best] ? k : best; }, ORDER[0]);
+    var T = TYPES[top];
+    $('rName').textContent = T.name;
+    $('rCatch').textContent = T.catch;
+    $('rBody').textContent = T.body;
+    $('pTitle').textContent = T.pTitle;
+    $('pSteps').innerHTML = '';
+    T.steps.forEach(function (s) { var li = document.createElement('li'); li.textContent = s; $('pSteps').appendChild(li); });
+    var max = 6;
+    $('bars').innerHTML = '';
+    ORDER.forEach(function (k) {
+      var row = document.createElement('div'); row.className = 'bar';
+      var a = document.createElement('span'); a.textContent = TYPES[k].name;
+      var i = document.createElement('i'); var b = document.createElement('b'); b.style.width = (score[k] / max * 100) + '%'; i.appendChild(b);
+      var c = document.createElement('span'); c.textContent = score[k] + '/' + max;
+      row.appendChild(a); row.appendChild(i); row.appendChild(c);
+      $('bars').appendChild(row);
+    });
+    show('result');
+  }
+
+  document.querySelectorAll('.opt').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      answers[idx] = Number(btn.dataset.score);
+      idx++;
+      if (idx < QUESTIONS.length) { renderQ(); } else { finish(); }
+    });
+  });
+  $('back').addEventListener('click', function () { if (idx > 0) { idx--; renderQ(); } });
+  $('go').addEventListener('click', function () { idx = 0; answers = []; renderQ(); show('quiz'); });
+  $('retry').addEventListener('click', function () { idx = 0; answers = []; renderQ(); show('quiz'); });
+
+  var k = new URLSearchParams(location.search).get('k');
+  show(k === KEY ? 'start' : 'locked');
+})();
+</script>
+</body>
+</html>
